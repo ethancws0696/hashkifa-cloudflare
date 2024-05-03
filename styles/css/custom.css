@@ -3283,3 +3283,27 @@ input[type="number"] {
     font-size: 20px;
   }
 }
+
+.link-faq-d {
+  margin-bottom: 20px;
+}
+.link-faq {
+  font-size:20px;
+  font-weight: normal;
+  color: #ff9016;
+  cursor: pointer;
+}
+.link-faq-content {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.link-faq-content.active {
+  opacity: 1;
+}
+.link-faq-content p, .link-faq-content a {
+  font-size: 17px !important;
+  margin-bottom: 0 !important;
+}
+.link-faq-content a {
+  color: #ff9016;
+}

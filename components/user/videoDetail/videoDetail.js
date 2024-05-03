@@ -23,6 +23,7 @@ export default function videoDetail(data) {
   const [version, setVersion] = useState(null);
   const router = useRouter();
   const [ip, setIP] = useState("");
+  const [showDiv, setShowDiv] = useState(false);
   const controlsList = [
     "play",
     "progress",
@@ -98,6 +99,11 @@ export default function videoDetail(data) {
         setLoader(false);
       });
   };
+
+  const toggleDiv = async () => {
+    console.log("here");
+    setShowDiv(!showDiv);
+  }
 
   useEffect(async () => {
     getData();
@@ -246,6 +252,12 @@ export default function videoDetail(data) {
                   <div className="title-view">
                     <h1>{vdata.name} </h1>
                     <p>{vdata.description}</p>
+                    <div className="link-faq-d"><span className="link-faq"  onClick={toggleDiv}>Experiencing Issues with Video Playback?</span></div>
+                    <div className={!showDiv ? "link-faq-d link-faq-content d-none" : "link-faq-d link-faq-content active"}>
+                      <p>If you're having trouble watching the video, please ensure that the following URL is allowed by your network's filters:</p>
+                      <a href="https://customer-sd3iizqja0y2b86z.cloudflarestream.com/" target="_blank">https://customer-sd3iizqja0y2b86z.cloudflarestream.com/</a>
+                      <p>This will enable you to access and stream our video content without interruptions. If you need further assistance, please contact our support team.</p>
+                    </div>
                     {/* <a href="/videos" className="btn btn-theme-dark d-flex align-items-center">
                             <img className="me-2 arrow-white-aws" src={LeftArrow.src} alt=""/>
                             Back
